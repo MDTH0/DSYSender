@@ -46,5 +46,8 @@ After installed launch the script and launch the game or vice versa- just make s
 
 
 
-DSYSender Nexus:
+DSYSender RE Requiem Nexus:
 https://www.nexusmods.com/residentevilrequiem/mods/46
+
+DSYSender RE4 Nexus:
+(hopefully coming soon)
