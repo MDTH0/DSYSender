@@ -18,3 +18,27 @@ the mods this was made for ( both by lunatiii):
 https://www.nexusmods.com/residentevil42023/mods/5813
 
 https://www.nexusmods.com/residentevilrequiem/mods/42
+
+This is a Pyinstaller mod that runs a script that takes the values from Lunatii's mod and sends it through to port 6969, to be received by DualsenseY. It is run through a sh script in your console
+
+
+
+Setup
+
+
+
+First install dualsenseY-v2: (i installed it on cachy os from source and worked pretty good besides a couple small pkg things i had to change)
+https://github.com/WujekFoliarz/DualSenseY-v2 (DualSenseY-v2)
+
+1. Install ReFramework by Praydog
+https://www.nexusmods.com/residentevilrequiem/mods/13 (reframework by praydog)
+
+2. Install Lunatii's mod:
+https://www.nexusmods.com/residentevilrequiem/mods/42 (resident evil requiem dualsenseX mod by Lunatii)
+
+3. Install this mod and put the three files it has in it's tar.gz folder (must be extracted) in {gamefolder}/reframework/data/DualsenseX (you should see a file called payload.json, make sure the three files from this are in there)
+
+IF you want you can view and build from source yourself on the github:
+DSYSender Github
+
+After installed launch the script and launch the game or vice versa- just make sure dualsense Y-v2 is open before launching the script.
