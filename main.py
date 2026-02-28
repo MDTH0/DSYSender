@@ -9,8 +9,8 @@ import socket
 import time
 import json
 from pathlib import Path
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
+
+
 
 # check if in a kind of terminal
 if not (sys.stdin.isatty() and sys.stdout.isatty()):
@@ -71,10 +71,9 @@ print("Loaded Payload ", PAYLOAD_PATH)
 #create socket
 dsySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-
 lastPayload : bytes
+firstPayload = 1
 
-firstPayload = True
 
 def debugPrint(string : str, debugKey: int):
     if debugKey == DEBUG_MODE:
@@ -82,7 +81,7 @@ def debugPrint(string : str, debugKey: int):
     
 
 def should_send_payload(data : bytes):
-    if FirstPayload == True:
+    if firstPayload:
         debugPrint("It is the first payload" , 4)
         return True
     elif data == lastPayload:
@@ -100,8 +99,8 @@ def send_payload(dataSend : bytes):
         debugPrint("Should send Payload", 4)
         dsySocket.sendto(dataSend, (host, port))
         lastPayload = dataSend
-        if firstPayload == True:
-            firstPayload = False
+        if firstPayload:
+            firstPayload = 0
 
 try:
     while True:
