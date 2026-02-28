@@ -50,4 +50,5 @@ DSYSender RE Requiem Nexus:
 https://www.nexusmods.com/residentevilrequiem/mods/46
 
 DSYSender RE4 Nexus:
-(hopefully coming soon)
+now up!
+https://www.nexusmods.com/residentevil42023/mods/5821
