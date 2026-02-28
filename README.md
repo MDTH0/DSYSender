@@ -5,6 +5,8 @@ the release folder is /dist
 it was made specifically for the re requiem dualsense mod on linux and seems to be working from my testing.
 
 uh drop the files from /dist into the folder that contains the dualsensex payload and it should send them to dsy after launching dsySenderRun.sh
+or grab a release version and just extract the folder then copy paste those to the dualsensex payload folder
+
 
 hopefully it can work with other mods such as the re4 dualsense mod for linux users because that would be gret.
 
@@ -12,3 +14,4 @@ please let me know of any bugs or issues
 
 thanks, 
 MDTH0
+
