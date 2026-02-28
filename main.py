@@ -9,8 +9,21 @@ from pathlib import Path
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
+# check if in a kind of terminal
+if not (sys.stdin.isatty() and sys.stdout.isatty()):
+    print("DSYSender must be run from bundled dsySenderRun.sh.")
+    sys.exit(1)
 
-BASE_DIR = Path(__file__).resolve().parent
+# Preventing multiple instances multiple instances
+_singleton = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+try:
+    _singleton.bind(("127.0.0.1", 51987))
+except OSError:
+    print("DSYSender is already running.")
+    sys.exit(1)
+
+BASE_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else Path(__file__).resolve().parent
+
 CONFIG_PATH = BASE_DIR / "config.json"
 
 print("Hello welcome to DSYSender, mainly built for Linux Users who want to use The Resident Evil Requiem Dualsense mod (though hopefully it could help with other games too!) Im MDTH and hopefully soon I'll have a github distro for this setup. Please use Control + C to close this script whenever you feel like it")
