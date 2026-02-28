@@ -45,6 +45,8 @@ After installed launch the script and launch the game or vice versa- just make s
 
 
 
+Supported Games:
+
 
 DSYSender RE Requiem Nexus:
 https://www.nexusmods.com/residentevilrequiem/mods/46
@@ -52,3 +54,4 @@ https://www.nexusmods.com/residentevilrequiem/mods/46
 DSYSender RE4 Nexus:
 now up!
 https://www.nexusmods.com/residentevil42023/mods/5821
+
