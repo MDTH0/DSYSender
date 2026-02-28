@@ -7,7 +7,7 @@ it was made specifically for the re requiem dualsense mod on linux and seems to 
 
 uh drop the files from /dist into the folder that contains the dualsensex payload and it should send them to dsy after launching dsySenderRun.sh or grab a release version and just extract the folder then copy paste those to the dualsensex payload folder
 
-hopefully it can work with other mods such as the re4 dualsense mod for linux users because that would be gret.
+hopefully it can work with other mods such as the re4 dualsense mod for linux users because that would be gret(ill update re4 status once ive tested).
 
 please let me know of any bugs or issues
 
@@ -42,3 +42,9 @@ IF you want you can view and build from source yourself on the github:
 DSYSender Github
 
 After installed launch the script and launch the game or vice versa- just make sure dualsense Y-v2 is open before launching the script.
+
+
+
+
+DSYSender Nexus:
+https://www.nexusmods.com/residentevilrequiem/mods/46
