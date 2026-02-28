@@ -1,5 +1,7 @@
-.venv/*
-build/*
+.venv/**
+.venv/
+build/**
+build/
 dist/
 .vscode/*
 .directory
