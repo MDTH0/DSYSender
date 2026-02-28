@@ -1,6 +1,7 @@
 hello welcome to the very cool dsysender helper which basically can take a payload and deliver to dsy on port 6969. it is a pyinstaller app.
 
 the release folder is /dist
+or the releases tab on the right
 
 it was made specifically for the re requiem dualsense mod on linux and seems to be working from my testing.
 
