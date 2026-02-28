@@ -1,6 +1,6 @@
 print("Python environment working") #test
 
-DEBUG_MODE : int = 4 #0 = No Debug ,1 = ,2 = ,3 = , 4 = Payload Change Debug
+DEBUG_MODE : int = 0 #0 = No Debug ,1 = ,2 = ,3 = , 4 = Payload Change Debug
 
 
 import sys
@@ -71,8 +71,7 @@ print("Loaded Payload ", PAYLOAD_PATH)
 #create socket
 dsySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-lastPayload : bytes
-firstPayload = 1
+lastPayload = None
 
 
 def debugPrint(string : str, debugKey: int):
@@ -81,7 +80,8 @@ def debugPrint(string : str, debugKey: int):
     
 
 def should_send_payload(data : bytes):
-    if firstPayload:
+    global lastPayload
+    if lastPayload == None:
         debugPrint("It is the first payload" , 4)
         return True
     elif data == lastPayload:
@@ -94,13 +94,12 @@ def should_send_payload(data : bytes):
 
 #function to send payload to dsy
 def send_payload(dataSend : bytes):
+    global lastPayload
     should = should_send_payload(dataSend)
     if should:
         debugPrint("Should send Payload", 4)
         dsySocket.sendto(dataSend, (host, port))
         lastPayload = dataSend
-        if firstPayload:
-            firstPayload = 0
 
 try:
     while True:
