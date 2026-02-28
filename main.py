@@ -1,5 +1,8 @@
 print("Python environment working") #test
 
+DEBUG_MODE : int = 4 #0 = No Debug ,1 = ,2 = ,3 = , 4 = Payload Change Debug
+
+
 import sys
 import warnings
 import socket
@@ -30,6 +33,7 @@ print("Hello welcome to DSYSender, mainly built for Linux Users who want to use 
 
 if not CONFIG_PATH.is_file():
     print("WARNING: Config file is missing, please make sure the included config is also in this folder.")
+    #warn the usert the config file is missing
     input("DSYSender will now exit. Press Enter to close: ")
     sys.exit(1)
 else:
@@ -40,7 +44,7 @@ with open(CONFIG_PATH) as f:
 
 host = config["host"] # i doubt anyone will need to change this ever i dont think
 port = config["port"] # port to send to : normally 6969 for dualsenseY
-rate = config["rate"] # how many times per second it updates i didnt end up setting this up maybe will though eventually
+rate = config["rate"] # i changed my mind not using observer im going to use fixed updates a second
 PAYLOAD_PATH = (BASE_DIR / config["payload_name"]) # path to the payload
 
 
@@ -68,31 +72,44 @@ print("Loaded Payload ", PAYLOAD_PATH)
 dsySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
+lastPayload : bytes
+
+firstPayload = True
+
+def debugPrint(string : str, debugKey: int):
+    if debugKey == DEBUG_MODE:
+        print("DEBUG: ", string)
+    
+
+def should_send_payload(data : bytes):
+    if FirstPayload == True:
+        debugPrint("It is the first payload" , 4)
+        return True
+    elif data == lastPayload:
+        debugPrint("Data unchanged from last payload", 4)
+        return False
+    else:
+        debugPrint("Valid data and different from last payload", 4)
+        return True
+        
 
 #function to send payload to dsy
-def send_payload(data : bytes):
-    dsySocket.sendto(data, (host, port))
-
-
-class PayloadWatcher(FileSystemEventHandler):
-    def on_modified(self, event):
-        if event.src_path.endswith(PAYLOAD_PATH.name):
-            data = PAYLOAD_PATH.read_bytes()
-            send_payload(data)
-            # Payload sent
-            # print("yes we sent the updated data lolololol")
-
-
-observer = Observer()
-observer.schedule(PayloadWatcher(), str(PAYLOAD_PATH.parent), recursive=False)
-observer.start()
-
-print("Watching payload for changes...")
+def send_payload(dataSend : bytes):
+    should = should_send_payload(dataSend)
+    if should:
+        debugPrint("Should send Payload", 4)
+        dsySocket.sendto(dataSend, (host, port))
+        lastPayload = dataSend
+        if firstPayload == True:
+            firstPayload = False
 
 try:
     while True:
-        time.sleep(1)
+        time.sleep(0.02)
+        data = PAYLOAD_PATH.read_bytes()
+        send_payload(data)
+        
 except KeyboardInterrupt:
-    observer.stop()
-
-observer.join()
+    print("You have pressed Ctrl + C and DSYSender will now exit.")
+    input("Press enter to Exit: ")
+    sys.exit(1)
