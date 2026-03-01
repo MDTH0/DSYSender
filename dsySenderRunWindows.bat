@@ -1,2 +1,3 @@
-%cd%
 echo on
+%cd%
+cmd /k
