@@ -43,7 +43,7 @@ with open(CONFIG_PATH) as f:
 
 host = config["host"] # i doubt anyone will need to change this ever i dont think
 port = config["port"] # port to send to : normally 6969 for dualsenseY
-rate = config["rate"] # default 50, might not be needed, might be, probably not, probably use numbers 1 can be divided by cleanly ex. 1/20 = 0.05, 1/50 = .02, 1/40 = 0.025 but 1/60 = .0166666666 (goes on forever basically, do not use this, same with 1/30)
+rate = config["rate"] # default 20, might not be needed, might be, probably, maybe set it to more if you have good pc if want, probably use numbers 1 can be divided by cleanly ex. 1/20 = 0.05, 1/50 = .02, 1/40 = 0.025 but 1/60 = .0166666666 (goes on forever basically, do not use this, same with 1/30)
 sleepTime = 1/rate
 PAYLOAD_PATH = (BASE_DIR / config["payload_name"]) # path to the payload
 
