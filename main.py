@@ -1,4 +1,4 @@
-DEBUG_MODE : int = 2 #0 = No Debug ,1 = Unused as of now ,2 = Update Rate,3 = , 4 = Payload Change Debug
+DEBUG_MODE : int = 4 #0 = No Debug ,1 = Unused as of now ,2 = Update Rate,3 = , 4 = Payload Change Debug
 
 
 import sys
@@ -73,14 +73,19 @@ dsySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 lastPayload = None
 
+lastPayloadTime = time.time()
+
 def debugPrint(string : str, debugKey: int):
     if debugKey == DEBUG_MODE:
         print("DEBUG: ", string)
     
 
-def should_send_payload(data : bytes, lastPayloadCompare : bytes):
+def should_send_payload(data : bytes, lastPayloadCompare : bytes, lastPayloadTime : float):
     if lastPayloadCompare == None:
         debugPrint("It is the first payload" , 4)
+        return True
+    elif time.time() - lastPayloadTime > 1:
+        debugPrint("Forcing Data Send to Keep connection with DSY", 4)
         return True
     elif data == lastPayloadCompare:
         debugPrint("Data unchanged from last payload", 4)
@@ -93,11 +98,13 @@ def should_send_payload(data : bytes, lastPayloadCompare : bytes):
 # function to send payload to dsy
 def send_payload(dataSend : bytes):
     global lastPayload
-    should = should_send_payload(dataSend, lastPayload)
+    global lastPayloadTime
+    should = should_send_payload(dataSend, lastPayload, lastPayloadTime)
     if should:
         debugPrint("Should send Payload", 4)
         dsySocket.sendto(dataSend, (host, port))
         lastPayload = dataSend
+        lastPayloadTime = time.time()
 
 try:
     print("DSYSender Loaded, Please press Left Control + C to Exit")
