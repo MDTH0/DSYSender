@@ -1,3 +1,3 @@
 echo on
-%cd%
 cmd /k
+DSYSender
