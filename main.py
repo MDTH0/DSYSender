@@ -78,12 +78,11 @@ def debugPrint(string : str, debugKey: int):
         print("DEBUG: ", string)
     
 
-def should_send_payload(data : bytes):
-    global lastPayload
-    if lastPayload == None:
+def should_send_payload(data : bytes, lastPayloadCompare : bytes):
+    if lastPayloadCompare == None:
         debugPrint("It is the first payload" , 4)
         return True
-    elif data == lastPayload:
+    elif data == lastPayloadCompare:
         debugPrint("Data unchanged from last payload", 4)
         return False
     else:
@@ -94,7 +93,7 @@ def should_send_payload(data : bytes):
 # function to send payload to dsy
 def send_payload(dataSend : bytes):
     global lastPayload
-    should = should_send_payload(dataSend)
+    should = should_send_payload(dataSend, lastPayload)
     if should:
         debugPrint("Should send Payload", 4)
         dsySocket.sendto(dataSend, (host, port))
