@@ -1,5 +1,5 @@
 Linux:
-pyinstaller main.py --onefile --windowed --name DSYSender
+pyinstaller main.py --onefile --windowed --name DSYSenderLinux --distpath=./distLinux
 
 Windows:
 pyinstaller main.py --onefile --windowed --name DSYSenderWindows --distpath=./distWindows
