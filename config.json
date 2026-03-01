@@ -1,6 +1,6 @@
 {
   "host": "127.0.0.1",
   "port": 6969,
-  "rate": 5,
+  "rate": 20,
   "payload_name": "payload.json"
 }
