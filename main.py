@@ -1,6 +1,6 @@
 print("Python environment working") #test
 
-DEBUG_MODE : int = 2 #0 = No Debug ,1 = ,2 = Update Rate,3 = , 4 = Payload Change Debug
+DEBUG_MODE : int = 2 #0 = No Debug ,1 = Unused as of now ,2 = Update Rate,3 = , 4 = Payload Change Debug
 
 
 import sys
@@ -110,6 +110,6 @@ try:
         data = PAYLOAD_PATH.read_bytes()
         send_payload(data)
 except KeyboardInterrupt:
-    print("You have pressed Ctrl + C and DSYSender will now exit.")
-    input("Press enter to Exit: ")
-    sys.exit(1)
+    print("You have pressed Ctrl + C and DSYSender will now exit in 3 seconds.")
+    time.sleep(3)
+    sys.exit(0)
