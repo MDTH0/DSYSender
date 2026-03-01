@@ -105,11 +105,11 @@ def send_payload(dataSend : bytes):
 
 try:
     while True:
+        global sleepTime
         time.sleep(sleepTime)
         debugPrint(sleepTime, 2)
         data = PAYLOAD_PATH.read_bytes()
         send_payload(data)
-        
 except KeyboardInterrupt:
     print("You have pressed Ctrl + C and DSYSender will now exit.")
     input("Press enter to Exit: ")
