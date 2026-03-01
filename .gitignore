@@ -2,7 +2,6 @@
 .venv/
 build/**
 build/
-dist/
 .vscode/*
 .directory
 *.pyc
