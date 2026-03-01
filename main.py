@@ -1,6 +1,6 @@
 print("Python environment working") #test
 
-DEBUG_MODE : int = 0 #0 = No Debug ,1 = ,2 = ,3 = , 4 = Payload Change Debug
+DEBUG_MODE : int = 2 #0 = No Debug ,1 = ,2 = Update Rate,3 = , 4 = Payload Change Debug
 
 
 import sys
@@ -45,6 +45,7 @@ with open(CONFIG_PATH) as f:
 host = config["host"] # i doubt anyone will need to change this ever i dont think
 port = config["port"] # port to send to : normally 6969 for dualsenseY
 rate = config["rate"] # i changed my mind not using observer im going to use fixed updates a second
+sleepTime = 1/rate
 PAYLOAD_PATH = (BASE_DIR / config["payload_name"]) # path to the payload
 
 
@@ -103,7 +104,8 @@ def send_payload(dataSend : bytes):
 
 try:
     while True:
-        time.sleep(0.02)
+        time.sleep(sleepTime)
+        debugPrint(sleepTime, 2)
         data = PAYLOAD_PATH.read_bytes()
         send_payload(data)
         
