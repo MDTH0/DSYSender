@@ -2,4 +2,4 @@ Linux:
 pyinstaller main.py --onefile --windowed --name DSYSenderLinux --distpath=./distLinux
 
 Windows:
-pyinstaller main.py --onefile --console --windowed --name DSYSenderWindows --distpath=./distWindows
+pyinstaller main.py --onefile --console --name DSYSenderWindows --distpath=./distWindows
