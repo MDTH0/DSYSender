@@ -1,3 +1,5 @@
+## HELLO IF YOU ARE ON WINDOWS YOU CAN USE LUNATII'S MOD WITHOUT THIS KINDA THING EVEN WITH DSYV2 - NO NEED FOR THIS - JUST GET LUNATII'S MOD AND DSY V2
+ 
 hello welcome to the very cool dsysender helper which basically can take a payload and deliver to dsy on port 6969. it is a pyinstaller app.
 
 the release folder is /dist
