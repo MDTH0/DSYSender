@@ -20,7 +20,7 @@ if not (sys.stdin.isatty() and sys.stdout.isatty()):
 # Preventing multiple instances multiple instances
 _singleton = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
-    _singleton.bind(("127.0.0.1", 51987))
+    _singleton.bind(("127.0.0.1", 51987))  # im using this port to check for instances of my own script, in the event it's already in use fuck me i guess, i thought id add this comment for clarity
 except OSError:
     print("DSYSender is already running.")
     sys.exit(1)
@@ -29,7 +29,8 @@ BASE_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False
 
 CONFIG_PATH = BASE_DIR / "config.json"
 
-print("Hello welcome to DSYSender, mainly built for Linux Users who want to use The Resident Evil Requiem Dualsense mod (though hopefully it could help with other games too!) Im MDTH and hopefully soon I'll have a github distro for this setup. Please use Control + C to close this script whenever you feel like it")
+print("Hello welcome to DSYSender, please remember to read ReadMe before trying to use. The readme bundled with the file is always the most updated way to get instructions. Please use Control + C to close this script whenever you feel like it")
+print("Github Link: https://github.com/MDTH0/DSYSender")
 
 if not CONFIG_PATH.is_file():
     print("WARNING: Config file is missing, please make sure the included config is also in this folder.")
