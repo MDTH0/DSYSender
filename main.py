@@ -101,13 +101,10 @@ def send_payload(dataSend : bytes):
         lastPayload = dataSend
 
 try:
+    print("DSYSender Loaded, Please press Left Control + C to Exit")
     while True:
-        time.sleep(sleepTime) #testing again with rate config variable not implemented to see if this the source of exception
-        # debugPrint(sleepTime, 2) trying to find source of error
+        time.sleep(sleepTime)
         data = PAYLOAD_PATH.read_bytes()
         send_payload(data)
-
 except KeyboardInterrupt:
-    print("You have pressed Ctrl + C and DSYSender will now exit.")
-    time.sleep(1)
-    sys.exit(0)
+    print("You have pressed CTRL + C and DSYSender will now exit.")
