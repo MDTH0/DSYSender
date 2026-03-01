@@ -32,7 +32,7 @@ print("Github Link: https://github.com/MDTH0/DSYSender")
 
 if not CONFIG_PATH.is_file():
     print("WARNING: Config file is missing, please make sure the included config is also in this folder.")
-    #warn the usert the config file is missing
+    # warn the usert the config file is missing
     input("DSYSender will now exit. Press Enter to close: ")
     sys.exit(1)
 else:
@@ -68,7 +68,7 @@ print("Loaded Payload ", PAYLOAD_PATH)
 
 
 
-#create socket
+# create socket
 dsySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 lastPayload = None
@@ -91,7 +91,7 @@ def should_send_payload(data : bytes):
         return True
         
 
-#function to send payload to dsy
+# function to send payload to dsy
 def send_payload(dataSend : bytes):
     global lastPayload
     should = should_send_payload(dataSend)
