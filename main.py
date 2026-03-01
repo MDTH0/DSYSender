@@ -1,5 +1,3 @@
-print("Python environment working") #test
-
 DEBUG_MODE : int = 2 #0 = No Debug ,1 = Unused as of now ,2 = Update Rate,3 = , 4 = Payload Change Debug
 
 
@@ -105,11 +103,10 @@ def send_payload(dataSend : bytes):
 
 try:
     while True:
-        time.sleep(sleepTime)
-        debugPrint(sleepTime, 2)
+        time.sleep(.02) #testing again with rate config variable not implemented to see if this the source of exception
+        # debugPrint(sleepTime, 2) trying to find source of error
         data = PAYLOAD_PATH.read_bytes()
         send_payload(data)
 except KeyboardInterrupt:
-    print("You have pressed Ctrl + C and DSYSender will now exit in 3 seconds.")
-    time.sleep(3)
-    sys.exit(0)
+    print("You have pressed Ctrl + C and DSYSender will now exit.")
+    input("Press enter to continue: ")
