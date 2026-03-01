@@ -1,4 +1,4 @@
-DEBUG_MODE : int = 4 #0 = No Debug ,1 = Unused as of now ,2 = Update Rate,3 = , 4 = Payload Change Debug
+DEBUG_MODE : int = 0 #0 = No Debug ,1 = Unused as of now ,2 = Update Rate,3 = , 4 = Payload Change Debug
 
 
 import sys
