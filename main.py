@@ -44,7 +44,7 @@ with open(CONFIG_PATH) as f:
 host = config["host"] # i doubt anyone will need to change this ever i dont think
 port = config["port"] # port to send to : normally 6969 for dualsenseY
 rate = config["rate"] # default 50, might not be needed, might be, probably not, probably use numbers 1 can be divided by cleanly ex. 1/20 = 0.05, 1/50 = .02, 1/40 = 0.025 but 1/60 = .0166666666 (goes on forever basically, do not use this, same with 1/30)
-sleepTime = float(1)/rate
+sleepTime = 1/rate
 PAYLOAD_PATH = (BASE_DIR / config["payload_name"]) # path to the payload
 
 
@@ -72,7 +72,6 @@ print("Loaded Payload ", PAYLOAD_PATH)
 dsySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 lastPayload = None
-
 
 def debugPrint(string : str, debugKey: int):
     if debugKey == DEBUG_MODE:
@@ -103,10 +102,12 @@ def send_payload(dataSend : bytes):
 
 try:
     while True:
-        time.sleep(.02) #testing again with rate config variable not implemented to see if this the source of exception
+        time.sleep(sleepTime) #testing again with rate config variable not implemented to see if this the source of exception
         # debugPrint(sleepTime, 2) trying to find source of error
         data = PAYLOAD_PATH.read_bytes()
         send_payload(data)
+
 except KeyboardInterrupt:
     print("You have pressed Ctrl + C and DSYSender will now exit.")
-    input("Press enter to continue: ")
+    time.sleep(1)
+    sys.exit(0)
