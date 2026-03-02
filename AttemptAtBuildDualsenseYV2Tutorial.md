@@ -7,7 +7,7 @@ i just got it from the cachy os package installer**
 
 
 2. Clone the source:  
-git clone [https://github.com/WujekFoliarz/DualSenseY-v2.git](https://github.com/WujekFoliarz/DualSenseY-v2.git) \{replace directory here\} -\> your directory, mine is, for the home folder, so ill leave it blank: ~/
+git clone [https://github.com/WujekFoliarz/DualSenseY-v2.git](https://github.com/WujekFoliarz/DualSenseY-v2.git) \{replace directory here if wanted\} -\> your directory, mine is  the home folder, so ill leave it blank
 
 
 3. Check dependencies:  
