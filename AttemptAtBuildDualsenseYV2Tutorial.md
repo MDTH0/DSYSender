@@ -53,13 +53,12 @@ sed -i 's/\\bappindicator3-0\\.1\\b/ayatana-appindicator3-0.1/g' thirdparty/tray
   
 8. and it doesnt so i then replace the bad headers with the proper ones:
 
-  
+command 1:
 grep -R --line-number 'libappindicator/app-indicator.h' thirdparty/traypp
 
-sed -i 's\#libappindicator/app-indicator.h\#libayatana-appindicator/app-indicator.h\#g' \\
-
-$(grep -R --files-with-matches 'libappindicator/app-indicator.h' thirdparty/traypp)
-
+command 2:
+sed -i 's#<libappindicator/app-indicator.h>#<libayatana-appindicator/app-indicator.h>#g' \
+        thirdparty/traypp/tray/include/core/linux/tray.hpp
 
 My DualsenseY-V2 is now installed after I go back to step 4 this time. Though there’s a lot of different distros I hope this can help you get DualsenseY-V2 installed!
 
