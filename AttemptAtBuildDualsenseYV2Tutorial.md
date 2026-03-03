@@ -62,5 +62,6 @@ sed -i 's#<libappindicator/app-indicator.h>#<libayatana-appindicator/app-indicat
 
 My DualsenseY-V2 is now installed after I go back to step 4 this time. Though there’s a lot of different distros I hope this can help you get DualsenseY-V2 installed!
 
+When it's installed, in whichever directory the source is in (mine was in ~/DualsenseY-V2) there is now a folder in that directory called "build" and in it there is an Executable "DualsenseY".
 
 MDTH0
