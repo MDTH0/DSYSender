@@ -5,7 +5,7 @@ hello welcome to the very cool dsysender helper which basically can take a paylo
 the release folder is /dist
 or the releases tab on the right
 
-This mod as of right now makes the Resident Evil 4 Remake Adaptive Triggers and Resident Evil Requiem Adaptive Triggers Mods by Lunatii work on Linux, with DSY-V2. Hoping to Support more games (such as Red Dead Redemption 2, God of War, and other games that mod in Dualsense. That said there is a chance they will already work with DSYSender, I just have not been able to test yet. If anyone does end up trying a game not listed and it works please let me know in the Nexus Comments or Github discussions.
+This mod as of right now makes the Resident Evil 4 Remake Adaptive Triggers and Resident Evil Requiem Adaptive Triggers Mods by Lunatii work on Linux, with DSY-V2. Hoping to Support more games (such as Red Dead Redemption 2, God of War, and other games that mod in Dualsense. That said there is a chance they will already work with DSYSender, I just have not been able to test yet. If anyone does end up trying a game not listed and it works please let me know in the Nexus Comments or Github discussions.)
 
 uh drop the files from /dist into the folder that contains the dualsensex payload and it should send them to dsy after launching dsySenderRun.sh or grab a release version and just extract the folder then copy paste those to the dualsensex payload folder
 
